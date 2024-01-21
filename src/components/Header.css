@@ -1,0 +1,118 @@
+.container {
+    background-color: rgb(195, 230, 169);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.diver{
+display: flex;
+flex-direction: row;
+justify-content: space-around;
+width: 600px;
+}
+
+.diver2{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 250px;
+}
+
+#firstdiver{
+    display: flex;
+    justify-self: start;
+}
+
+#github {
+    height: 35px;
+    width: 35px;
+}
+
+#fork {
+    height: 30px;
+    width: 30px;
+}
+
+
+
+.switch{
+    position: relative;
+    display: inline-block;
+    width: 55px;
+    height: 26px;
+}
+
+.switch input{
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider{
+    position: absolute;
+    cursor: pointer;
+
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(149, 149, 149);
+    transition: 0.4s;
+    border-radius: 20px;
+}
+
+.slider::before{
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom:3.5px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 20px;
+}
+
+input:checked + .slider{
+    background-color: black;
+}
+input:checked + .slider::before{
+    transform: translateX(26px);
+}
+
+ul{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 30rem;
+}
+li{
+    list-style: none;
+    position: relative;
+}
+
+li::before{
+    content: "";
+    background-color: rgb(89, 216, 61);
+    position: absolute;
+    left: 0;
+    bottom: -0.2rem;
+    height: 4px;
+    width: 0;
+    transition: 0.3s ease-in-out;
+}
+
+li:hover::before{
+    content: "";
+    background-color: rgb(26, 139, 0);
+    position: absolute;
+    left: 0;
+    bottom: -0.2rem;
+    height: 4px;
+    width: 100%;
+    border-radius: 25px;
+}
+
