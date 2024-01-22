@@ -2,15 +2,28 @@ import React from "react";
 import "./Header.css";
 import github from "../images/github.png";
 import fork from "../images/fork.png";
+import { NavLink } from "react-router-dom";
 
 function Header() {
   return (
     <div className="container">
-      <div className="diver" id="firsdiver">
+      <div className="diver" id="firstdiver">
         <ul>
-          <li>Home</li>
-          <li>About</li>
-          <li>Donate</li>
+          <li>
+            <NavLink exact to="/" id="yo">
+              Home
+            </NavLink>
+          </li>
+          <li>
+            <NavLink exact to="/about" id="yo">
+              About
+            </NavLink>
+          </li>
+            <NavLink exact to="/donate" id="yo">
+          <li>
+              Donate
+          </li>
+            </NavLink>
         </ul>
       </div>
 
