@@ -1,9 +1,13 @@
 .container {
-    background-color: rgb(195, 230, 169);
+    background-color: lightcoral;
     display: flex;
     align-items: center;
     justify-content: space-between;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    position: sticky;
+    z-index: 100;
+    top: 0;
+    font-family: 'Roboto Slab', serif;
 }
 
 .diver{
@@ -101,12 +105,12 @@ li{
 #yo{
      color: #333;
      text-decoration: none;
-     font-size: 20px;
+     font-size: 25px;
     }
 
 li::before{
     content: "";
-    background-color: rgb(89, 216, 61);
+    background-color: rgb(158, 153, 153);
     position: absolute;
     left: 0;
     bottom: -0.2rem;
@@ -117,7 +121,7 @@ li::before{
 
 li:hover::before{
     content: "";
-    background-color: rgb(26, 139, 0);
+    background-color: rgb(91, 88, 88);
     position: absolute;
     left: 0;
     bottom: -0.2rem;
