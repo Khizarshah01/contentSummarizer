@@ -1,6 +1,8 @@
 import React from "react";
 import "./Home.css";
+import { NavLink } from "react-router-dom";
 import summarizer from "../images/acurate.jpg";
+
 function Home() {
   return (
     <div className="mainCon">
@@ -30,8 +32,10 @@ function Home() {
 
 
               <div className="btn">
-                <button className="button-30" id="summarizerBtn">
+                <button className="button-30" id="summarizerBtn" >
+                  <NavLink excat to="/summarizer" id="yo">
                   Summarizer
+                  </NavLink>
                 </button>
                 <button className="button-30" id="downloadBtn">
                   Download
