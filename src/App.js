@@ -3,7 +3,7 @@ import Header from './components/Header';
 import Home from './components/Home';
 import About from './components/About';
 import Donate from './components/Donate';
-import Summarizer from './components/Summarizer';
+
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
@@ -15,8 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/donate" element={<Donate />} />  
-        <Route path='/summarizer' element={<Summarizer/>}/>      
+        <Route path="/donate" element={<Donate />} />   
       </Routes>
     </div>
   </BrowserRouter>
