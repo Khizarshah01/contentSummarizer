@@ -176,9 +176,16 @@ h3 {
   border-radius: 10px;
 } */
 
-
-
-
+.scon{
+  display: flex;
+  margin-top: 20px;
+}
+h3{
+  color: white;
+  margin-top: 2px;
+  font-size: 20px;
+}
+ 
 
 #Urle {
   width: 80vh;
@@ -186,10 +193,11 @@ h3 {
 }
 
 #length {
-  margin-top: 20px;
+
   width: 400px;
   height: 10px;
-  -webkit-appearance: none;
+  margin: 11px 2px 2px 40px;
+  /* -webkit-appearance: none; */
   background-color:  #455EB5; /* Background color */
   outline: none;
   border-radius: 10px; /* Rounded corners */
@@ -209,16 +217,19 @@ h3 {
 
 
 input[type="text"] {
-  background-color: rgb(255, 255, 255); /* Transparent white */
-  color: #000000;
-  border: 1px solid #777;
+  background-color: rgb(91, 91, 91); /* Transparent white */
+  color: var(--front-color);
+  border: 1px solid #717171;
   padding: 10px;
   border-radius: 5px;
+  font-size: 20px;
   box-shadow: 0 0 10px var(--second-primary-color); /* Green glow effect, adjust color as needed */
 }
 
 input[type="text"]:focus {
   outline: none;
+  background-color: rgb(195, 194, 194);
+  color: var(--background-color);
 }
 
 /* Glowing effect on focus */
@@ -226,4 +237,80 @@ input[type="text"]:focus {
   box-shadow: 0 0 10px var(--second-primary-color),
     0 0 20px var(--second-primary-color), 0 0 40px var(--second-primary-color);
   transition: box-shadow 0.3s ease-in-out;
+}
+
+.textareaa{
+  position: relative;
+  background-color: rgb(91, 91, 91);
+  padding: 2em;
+  border-radius: 5px;
+}
+
+textarea{
+  min-width: 20vw;
+  max-width: 80vw;
+  min-height: 200px;
+  max-height: 80vh;
+  padding: 0.8em 1em;
+  font-size: 1em;
+}
+
+.textareaa textarea:focus {
+  outline: none;
+}
+
+textarea::-webkit-scrollbar {
+  width: 4px;
+}
+textarea::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+textarea::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+textarea::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+.clipboard.icon {
+  position: absolute;
+    top: 2.3em;
+    right: 2.5em;
+  margin-top: 4px;
+  margin-left: 4px;
+  width: 11px;
+  height: 16px;
+  border: solid 1px #ffffff;
+  border-top: none;
+  border-radius: 1px; 
+  cursor: pointer;
+}
+.clipboard.icon:before {
+  top: -1px;
+  left: 2px;
+  width: 5px;
+  height: 1px;
+  border: solid 1px #ffffff;
+  border-radius: 1px; 
+}
+.clipboard.icon:after {
+  width: 3px;
+  height: 1px;
+  background-color: #ffffff;
+  box-shadow: 8px 0 0 0 #ffffff; 
+}
+
+.icon:before, .icon:after {
+  content: '';
+  position: absolute;
+  display: block;
+}
+
+
+#summarizedText{
+  width: 980px;
+  height: 700px;
+  background-color: rgb(91, 91, 91);
+  border: none;
+  color: var(--front-color);
 }
