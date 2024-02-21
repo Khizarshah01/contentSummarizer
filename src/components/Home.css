@@ -244,15 +244,17 @@ input[type="text"]:focus {
   background-color: rgb(91, 91, 91);
   padding: 2em;
   border-radius: 5px;
+  margin-bottom: 50px;
 }
 
-textarea{
+.textarea{
   min-width: 20vw;
   max-width: 80vw;
   min-height: 200px;
   max-height: 80vh;
   padding: 0.8em 1em;
   font-size: 1em;
+  
 }
 
 .textareaa textarea:focus {
@@ -309,8 +311,9 @@ textarea::-webkit-scrollbar-thumb:hover {
 
 #summarizedText{
   width: 980px;
-  height: 700px;
+  height: 600px;
   background-color: rgb(91, 91, 91);
   border: none;
+  font-size: 20px;
   color: var(--front-color);
 }

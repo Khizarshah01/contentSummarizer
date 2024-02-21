@@ -36,7 +36,7 @@ function Home() {
     <div className="mainCon">
       <div className="head">
         <div className="Heading">
-          <h1 data-text="+JADU SUMARIZER+">+JADU SUMARIZER+</h1>
+          <h1 data-text="JADU SUMARIZER">JADU SUMARIZER</h1>
         </div>
         <h2>
           A web app that convert your large amount of text data into short text.
@@ -77,6 +77,7 @@ function Home() {
             cols="70"
             value={summarizedText}
             ref={textAreaRef}
+            spellCheck={false}
           ></textarea>
           <div id="copyToClipboard-a" className="clipboard icon" onClick={copyToClipboard}></div>
         </div>
