@@ -1,14 +1,45 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "./Home.css";
 
 function Home() {
   const [url, setUrl] = useState("");
+  const [loading, setLoading] = useState(false);
   const [length, setLength] = useState(5); // initial summary length set to 5
   const [summarizedText, setSummarizedText] = useState("");
   const textAreaRef = useRef(null);
+  const [loadingDots, setLoadingDots] = useState("");
+  const [typingText, setTypingText] = useState(""); // State for typing effect
 
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setLoadingDots((prev) => (prev.length < 3 ? prev + "." : ""));
+    }, 500);
+
+    return () => clearInterval(interval);
+  }, []);
+
+
+  useEffect(() => {
+    if (!loading) {
+      let currentIndex = 0;
+      const interval = setInterval(() => {
+        const text = typingText.substring(0, currentIndex);
+        const cursor = currentIndex % 2 === 0 ? "|" : " "; // Alternate cursor between "|" and " "
+        setSummarizedText(text + cursor); // Display text with cursor
+        currentIndex++;
+        if (currentIndex > typingText.length) {
+          clearInterval(interval);
+        }
+      }, 5); // Adjust the interval to control typing speed
+      return () => clearInterval(interval);
+    }
+  }, [typingText, loading]);
+
+  
   const handleSummarize = (event) => {
     event.preventDefault();
+    setLoading(true);
     fetch("http://localhost:5000/summarize", {
       method: "POST",
       headers: {
@@ -17,14 +48,23 @@ function Home() {
       body: JSON.stringify({ url: url, length: +length }),
     })
       .then((response) => response.json())
+
       .then((data) => {
-        setSummarizedText(data.summarized_text);
+        const text = data.summarized_text;
+        setTypingText(text); // Set the typing text with the response
+        setSummarizedText(text); // Set the summarized text immediately
       })
+      
       .catch((error) => {
         console.error("Error:", error);
         console.log("Response Status:", error.response.status);
         console.log("Response Text:", error.response.statusText);
+      })
+
+      .finally(() => {
+        setLoading(false); // Set loading to false when request completes
       });
+      
   };
 
   const copyToClipboard = () => {
@@ -75,9 +115,10 @@ function Home() {
             id="summarizedText"
             rows="10"
             cols="70"
-            value={summarizedText}
+            value={loading ? "Loading." + loadingDots : summarizedText}
             ref={textAreaRef}
             spellCheck={false}
+            readOnly // Make the textarea read-only while loading
           ></textarea>
           <div id="copyToClipboard-a" className="clipboard icon" onClick={copyToClipboard}></div>
         </div>
