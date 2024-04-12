@@ -48,21 +48,21 @@ Content Summarizer is a Python-based tool that provides automatic summarization 
 
 1. *Clone the Repository:*
 
-   bash
+   ```bash
    git clone https://github.com/Khizarshah01/contentSummarizer.git
 2. **Go to the project directory:**
 
-   bash
+   ```bash
    cd contentSummarizer
 3. *Install dependencies:*
 
-   bash
+   ```bash
    npm install
       or
    npm i --legacy-peer-deps
 4. **Start the development server:**
 
-   bash
+   ```bash
    npm start
 5. *Open the app in your browser at:*
 
