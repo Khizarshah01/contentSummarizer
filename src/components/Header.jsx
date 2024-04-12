@@ -10,16 +10,16 @@ function Header() {
       <div className="diver" id="firstdiver">
         <ul>
           <li>
-            <NavLink exact to="/" id="yo">
+            <NavLink exact="true" to="/" id="yo">
               Home
             </NavLink>
           </li>
           <li>
-            <NavLink exact to="/about" id="yo">
+            <NavLink exact="true" to="/about" id="yo">
               About
             </NavLink>
           </li>
-            <NavLink exact to="/donate" id="yo">
+            <NavLink exact="true" to="/donate" id="yo">
           <li>
               Donate
           </li>

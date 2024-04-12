@@ -71,6 +71,10 @@ function Home() {
   const copyToClipboard = () => {
     textAreaRef.current.select();
     document.execCommand('copy');
+
+    setTimeout(() => {
+        textAreaRef.current.blur();
+    }, 100);
   };
 
   const handleButtonClick = (buttonName) => {
