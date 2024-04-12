@@ -2,9 +2,9 @@ import React, { useState, useRef, useEffect } from "react";
 import "./Home.css";
 
 function Home() {
-  const [url, setUrl] = useState("");
+  const [inputValue, setInputValue] = useState("");
   const [loading, setLoading] = useState(false);
-  const [length, setLength] = useState(5);
+  const [length, setLength] = useState(15); // Set default length to 15
   const [summarizedText, setSummarizedText] = useState("");
   const textAreaRef = useRef(null);
   const [loadingDots, setLoadingDots] = useState("");
@@ -38,12 +38,19 @@ function Home() {
   const handleSummarize = (event) => {
     event.preventDefault();
     setLoading(true);
+    const requestBody = {
+      url: activeButton === "Link" ? inputValue : "",
+      text: activeButton === "Raw" ? inputValue : "",
+      keyword: activeButton === "Keyword" ? inputValue : "",
+      length: +length, // Convert length to a number
+    };
+
     fetch("http://localhost:5000/summarize", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ url: url, length: +length }),
+      body: JSON.stringify(requestBody),
     })
       .then((response) => response.json())
       .then((data) => {
@@ -68,7 +75,8 @@ function Home() {
 
   const handleButtonClick = (buttonName) => {
     setActiveButton(buttonName);
-    // You can add logic here to perform different actions based on the clicked button
+    // Clear input value when switching buttons
+    setInputValue("");
   };
 
   return (
@@ -78,14 +86,15 @@ function Home() {
           <h1 data-text="JADU SUMARIZER">JADU SUMARIZER</h1>
         </div>
         <h2>
-          A web app that convert your large amount of text data into short text.
+          A web app that converts your large amount of text data into short text.
         </h2>
-        <h3>NO SINGUP  |  FREE TO USE  |  OPEN SOURCE</h3>
+        <h3>NO SIGNUP | FREE TO USE | OPEN SOURCE</h3>
       </div>
 
       <div className="con">
         <div className="Choice">
-          <button id="ChoiceR"
+          <button
+            id="ChoiceR"
             className={activeButton === "Link" ? "active" : ""}
             onClick={() => handleButtonClick("Link")}
           >
@@ -95,23 +104,30 @@ function Home() {
             className={activeButton === "Raw" ? "active" : ""}
             onClick={() => handleButtonClick("Raw")}
           >
-            Raw
+            Text
           </button>
-          <button id="ChoiceL"
-            className={activeButton === "keyword" ? "active" : ""}
-            onClick={() => handleButtonClick("keyword")}
+          <button
+            id="ChoiceL"
+            className={activeButton === "Keyword" ? "active" : ""}
+            onClick={() => handleButtonClick("Keyword")}
           >
             Keyword
           </button>
         </div>
         <div className="inputBox">
           <input
-            id="Urle"
+            id="input"
             type="text"
-            value={url}
-            onChange={(e) => setUrl(e.target.value)}
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
             required="required"
-            placeholder="Enter URL"
+            placeholder={
+              activeButton === "Link"
+                ? "Enter URL"
+                : activeButton === "Keyword"
+                ? "Enter keyword"
+                : "Enter text"
+            } // Set placeholder dynamically based on active button
           />
           <button className="button-36" onClick={handleSummarize}>Summarize</button>
           <div className="scon">
