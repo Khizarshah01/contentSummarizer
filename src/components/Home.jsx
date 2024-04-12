@@ -4,12 +4,12 @@ import "./Home.css";
 function Home() {
   const [url, setUrl] = useState("");
   const [loading, setLoading] = useState(false);
-  const [length, setLength] = useState(5); // initial summary length set to 5
+  const [length, setLength] = useState(5);
   const [summarizedText, setSummarizedText] = useState("");
   const textAreaRef = useRef(null);
   const [loadingDots, setLoadingDots] = useState("");
-  const [typingText, setTypingText] = useState(""); // State for typing effect
-
+  const [typingText, setTypingText] = useState("");
+  const [activeButton, setActiveButton] = useState("Link"); // State to track active button
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -19,24 +19,22 @@ function Home() {
     return () => clearInterval(interval);
   }, []);
 
-
   useEffect(() => {
     if (!loading) {
       let currentIndex = 0;
       const interval = setInterval(() => {
         const text = typingText.substring(0, currentIndex);
-        const cursor = currentIndex % 2 === 0 ? "|" : " "; // Alternate cursor between "|" and " "
-        setSummarizedText(text + cursor); // Display text with cursor
+        const cursor = currentIndex % 2 === 0 ? "|" : " ";
+        setSummarizedText(text + cursor);
         currentIndex++;
         if (currentIndex > typingText.length) {
           clearInterval(interval);
         }
-      }, 5); // Adjust the interval to control typing speed
+      }, 5);
       return () => clearInterval(interval);
     }
   }, [typingText, loading]);
 
-  
   const handleSummarize = (event) => {
     event.preventDefault();
     setLoading(true);
@@ -48,28 +46,29 @@ function Home() {
       body: JSON.stringify({ url: url, length: +length }),
     })
       .then((response) => response.json())
-
       .then((data) => {
         const text = data.summarized_text;
-        setTypingText(text); // Set the typing text with the response
-        setSummarizedText(text); // Set the summarized text immediately
+        setTypingText(text);
+        setSummarizedText(text);
       })
-      
       .catch((error) => {
         console.error("Error:", error);
         console.log("Response Status:", error.response.status);
         console.log("Response Text:", error.response.statusText);
       })
-
       .finally(() => {
-        setLoading(false); // Set loading to false when request completes
+        setLoading(false);
       });
-      
   };
 
   const copyToClipboard = () => {
     textAreaRef.current.select();
     document.execCommand('copy');
+  };
+
+  const handleButtonClick = (buttonName) => {
+    setActiveButton(buttonName);
+    // You can add logic here to perform different actions based on the clicked button
   };
 
   return (
@@ -84,8 +83,27 @@ function Home() {
         <h3>NO SINGUP  |  FREE TO USE  |  OPEN SOURCE</h3>
       </div>
 
-      {/* second container */}
       <div className="con">
+        <div className="Choice">
+          <button id="ChoiceR"
+            className={activeButton === "Link" ? "active" : ""}
+            onClick={() => handleButtonClick("Link")}
+          >
+            Link
+          </button>
+          <button
+            className={activeButton === "Raw" ? "active" : ""}
+            onClick={() => handleButtonClick("Raw")}
+          >
+            Raw
+          </button>
+          <button id="ChoiceL"
+            className={activeButton === "keyword" ? "active" : ""}
+            onClick={() => handleButtonClick("keyword")}
+          >
+            Keyword
+          </button>
+        </div>
         <div className="inputBox">
           <input
             id="Urle"
@@ -96,7 +114,6 @@ function Home() {
             placeholder="Enter URL"
           />
           <button className="button-36" onClick={handleSummarize}>Summarize</button>
-
           <div className="scon">
             <h3>Length: </h3>
             <input
@@ -109,7 +126,6 @@ function Home() {
             />
           </div>
         </div>
-
         <div className="textareaa">
           <textarea
             id="summarizedText"
@@ -118,7 +134,7 @@ function Home() {
             value={loading ? "Loading." + loadingDots : summarizedText}
             ref={textAreaRef}
             spellCheck={false}
-            readOnly // Make the textarea read-only while loading
+            readOnly
           ></textarea>
           <div id="copyToClipboard-a" className="clipboard icon" onClick={copyToClipboard}></div>
         </div>

@@ -15,11 +15,11 @@
   align-items: center;
   flex-direction: column;
 }
-.Heading {
+/* .Heading {
   /* display: flex;
   justify-content: center; */
-  /* align-items: center; */
-}
+  /* align-items: center; 
+} */
 h1 {
   font-size: 8em;
   color: gray;
@@ -316,4 +316,57 @@ textarea::-webkit-scrollbar-thumb:hover {
   border: none;
   font-size: 20px;
   color: var(--front-color);
+}
+
+.Choice{
+  display: flex;
+}
+
+.Choice {
+  display: flex;
+}
+
+.Choice button {
+  background-color: rgb(91, 91, 91);
+  border-style: none;
+  box-sizing: border-box;
+  color: #282828;
+  cursor: pointer;
+  flex-shrink: 0;
+  font-family: "Inter UI","SF Pro Display",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  height: 2.5rem;
+  padding: 0 1.6rem;
+  text-align: center;
+  text-shadow: rgba(0, 0, 0, 0.25) 0 3px 8px;
+  transition: all 0.3s; /* Transition all properties */
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.Choice button:hover {
+  box-shadow: rgb(80, 63, 205) 0 2px 100px;
+}
+
+.Choice button.active {
+  background-image: linear-gradient(92.88deg, #455EB5 9.16%, #5643CC 43.89%, #673FD7 64.72%);
+  box-shadow: rgb(80, 63, 205) 0 2px 100px;
+}
+
+
+.Choice button:active {
+  animation: ripple 0.3s linear; /* Apply the ripple animation on button click */
+}
+
+#ChoiceR{
+  border-start-start-radius: 8px;
+  border-end-start-radius: 8px;
+  padding-right: 40px;
+}
+
+#ChoiceL{
+  border-end-end-radius: 8px;
+  border-start-end-radius: 8px;
 }
