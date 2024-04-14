@@ -87,7 +87,7 @@ function Home() {
     <div className="mainCon">
       <div className="head">
         <div className="Heading">
-          <h1 data-text="JADU SUMARIZER">JADU SUMARIZER</h1>
+          <h1 data-text="JADU SUMARIZER">Content SUMMARIZER</h1>
         </div>
         <h2>
           A web app that converts your large amount of text data into short text.
@@ -140,7 +140,7 @@ function Home() {
               type="range"
               id="length"
               min="1"
-              max="15"
+              max="30"
               value={length}
               onChange={(e) => setLength(e.target.value)}
             />
