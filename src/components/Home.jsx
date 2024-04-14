@@ -87,7 +87,7 @@ function Home() {
     <div className="mainCon">
       <div className="head">
         <div className="Heading">
-          <h1 data-text="JADU SUMARIZER">Content SUMMARIZER</h1>
+          <h1 data-text="CONTENT SUMMARIZER">CONTENT SUMMARIZER</h1>
         </div>
         <h2>
           A web app that converts your large amount of text data into short text.
