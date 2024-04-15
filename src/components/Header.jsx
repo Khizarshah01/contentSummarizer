@@ -1,10 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Header.css";
-import github from "../images/github.png";
-import fork from "../images/fork.png";
+import githubLight from "../images/github.png";
+import githubDark from "../images/githubB.png";
+import forkLight from "../images/fork.png";
+import forkDark from "../images/forkB.png";
 import { NavLink } from "react-router-dom";
 
 function Header() {
+  const [githubLogo, setGithubLogo] = useState(githubLight);
+  const [forkLogo, setForkLogo] = useState(forkLight);
+
+  const setDarkMode = () => {
+    document.querySelector("body").setAttribute("data-theme", "dark");
+    setGithubLogo(githubDark);
+    setForkLogo(forkDark);
+  };
+
+  const setLightMode = () => {
+    document.querySelector("body").setAttribute("data-theme", "light");
+    setGithubLogo(githubLight);
+    setForkLogo(forkLight);
+  };
+
+  const toggleTheme = (e) => {
+    if (e.target.checked) {
+      setDarkMode();
+    } else {
+      setLightMode();
+    }
+  };
+
   return (
     <div className="container">
       <div className="diver" id="firstdiver">
@@ -19,22 +44,36 @@ function Header() {
               About
             </NavLink>
           </li>
-            <NavLink exact="true" to="/donate" id="yo">
           <li>
+            <NavLink exact="true" to="/donate" id="yo">
               Donate
-          </li>
             </NavLink>
+          </li>
         </ul>
       </div>
 
       <div className="diver2">
         <label className="switch">
-          <input type="checkbox" />
+          <input type="checkbox" onChange={toggleTheme} />
           <span className="slider" />
         </label>
 
-        <img id="fork" src={fork} alt="fork" />
-        <img id="github" src={github} alt="github" />
+        <img
+          id="fork"
+          src={forkLogo}
+          alt="fork"
+          onClick={() =>
+            window.open("https://github.com/Khizarshah01/contentSummarizer/fork")
+          }
+        />
+        <img
+          id="github"
+          src={githubLogo}
+          alt="github"
+          onClick={() =>
+            window.open("https://github.com/Khizarshah01/contentSummarizer")
+          }
+        />
       </div>
     </div>
   );

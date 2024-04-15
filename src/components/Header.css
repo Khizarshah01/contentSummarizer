@@ -68,7 +68,7 @@ width: 600px;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgb(149, 149, 149);
+    background-color: rgb(255, 255, 255);
     transition: 0.4s;
     border-radius: 20px;
 }
@@ -80,13 +80,14 @@ width: 600px;
     width: 20px;
     left: 4px;
     bottom:3.5px;
-    background-color: white;
+    background-color: var(--primary-color);
     transition: 0.4s;
     border-radius: 20px;
 }
 
 input:checked + .slider{
-    background-color: var(--background-color);
+    background-color: rgb(0, 0, 0);
+
 }
 input:checked + .slider::before{
     transform: translateX(26px);

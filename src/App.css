@@ -1,11 +1,4 @@
 /* app.css */
-:root {
-  --primary-color: #000000;
-  --second-primary-color:rgb(80, 63, 205) ;
-  --background-color: rgb(0, 0, 0);
-  --front-color: white;
-}
-
 
 .App {
   text-align: center;
