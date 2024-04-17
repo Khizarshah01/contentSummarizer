@@ -38,6 +38,18 @@ h1::before {
   filter: drop-shadow(0 0 20px var(--reverse-light)) drop-shadow(0 0 50px var(--reverse-light));
 }
 
+@media screen and (min-width: 1400px) {
+  h1{
+    font-size: 6.5em;
+  }
+}
+
+@media screen and (min-width: 1800px) {
+  h1{
+    font-size: 8em;
+  }
+}
+
 @keyframes animate {
   0%,
   10%,
