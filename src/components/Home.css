@@ -46,7 +46,7 @@ h1::before {
 
 @media screen and (min-width: 1800px) {
   h1{
-    font-size: 8em;
+    font-size: 7em;
   }
 }
 
