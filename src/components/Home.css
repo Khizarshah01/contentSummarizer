@@ -38,17 +38,9 @@ h1::before {
   filter: drop-shadow(0 0 20px var(--reverse-light)) drop-shadow(0 0 50px var(--reverse-light));
 }
 
-@media screen and (min-width: 1400px) {
-  h1{
-    font-size: 6.5em;
-  }
-}
 
-@media screen and (min-width: 1800px) {
-  h1{
-    font-size: 7em;
-  }
-}
+
+
 
 @keyframes animate {
   0%,
@@ -318,4 +310,84 @@ textarea::-webkit-scrollbar-thumb:hover {
 #input{
   width: 600px;
   margin-right: 50px;
+}
+
+
+
+
+
+
+/* for shaswat and harsh laptops */
+@media screen and (min-width: 1400px) {
+  h1{
+    font-size: 6.5em;
+  }
+}
+
+@media screen and (min-width: 1800px) {
+  h1{
+    font-size: 7em;
+  }
+}
+
+/* for tablet */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  h1{
+    font-size: 3em;
+  }
+}
+
+
+
+
+/* for small smart phone */
+@media screen and (max-width: 480px) {
+  h1{
+    font-size: 1.8em;
+    margin-top: 40px;
+  }
+  h2{
+    font-size: 0.9em;
+  }
+
+  #input{
+    width: 360px;
+    margin-right: 30px;
+    margin-bottom: 20px;
+  }
+
+  h3{
+    
+    font-size: 15px;
+  }
+
+  .con{
+    margin-top: 5px;
+  }
+
+#summarizedText{
+  width: 373px;
+  height: 450px;
+
+}
+
+.inputBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 0px;
+  margin-left: 50px;
+
+}
+
+#length{
+  width: 230px;
+}
+.scon{
+  margin-left: -52px;
+}
+.textareaa{
+  margin-left: 40px;
+}
+
 }

@@ -135,3 +135,34 @@ li:hover::before{
     border-radius: 25px;
 }
 
+
+
+
+@media screen and (max-width: 480px) {
+  .container {
+    width: 100%; /* Adjust the width as needed */
+    padding: 0 20px; /* Add padding to the sides */
+  }
+
+  .diver {
+    width: 100%; /* Adjust the width as needed */
+    justify-content: center; /* Center the items */
+  }
+
+  .diver2 {
+    width: 100%; /* Adjust the width as needed */
+    justify-content: center; /* Center the items */
+  }
+
+  #firstdiver {
+    justify-content: center; /* Center the items */
+  }
+
+  ul {
+    width: 100%; /* Adjust the width as needed */
+    justify-content: center; /* Center the items */
+  }
+  #yo{
+    font-size: 15px;
+  }
+}
