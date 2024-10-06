@@ -45,7 +45,7 @@ function Home() {
       length: +length, // Convert length to a number
     };
 
-    fetch("http://localhost:5000/summarize", {
+    fetch("https://summarizeback.vercel.app/summarize", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
